@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>城市装进玻璃球 · DEMO</title>
+<style>
+  :root{--paper:#f7f1e6;--card:#fffdf8;--ink:#4a2e1b;--soft:#7a5c43;--line:#e6d9c5;--accent:#b3743c}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;line-height:1.75}
+  .wrap{max-width:1060px;margin:0 auto;padding:60px 24px 80px}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;color:var(--accent);
+           border:1px solid var(--line);border-radius:999px;padding:5px 16px;background:var(--card)}
+  h1{font-size:clamp(30px,5vw,48px);line-height:1.25;margin:22px 0 12px;letter-spacing:.02em}
+  .lead{font-size:17px;color:var(--soft);max-width:640px;margin:0 0 10px}
+  .links a{color:var(--accent);text-decoration:none;font-size:14px;margin-right:18px;border-bottom:1px solid var(--line)}
+  .links a:hover{border-color:var(--accent)}
+  .rule{height:1px;background:var(--line);margin:44px 0 36px;border:0}
+  h2{font-size:22px;margin:0 0 6px}
+  .sub{color:var(--soft);font-size:14px;margin:0 0 24px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+        box-shadow:0 12px 32px rgba(90,60,30,.08);transition:transform .25s ease,box-shadow .25s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(90,60,30,.14)}
+  .card img{display:block;width:100%;height:auto;background:#efe4d2}
+  .meta{padding:18px 22px 22px}
+  .meta b{font-size:19px}
+  .meta span{display:block;color:var(--soft);font-size:13px;margin-top:4px}
+  .tag{display:inline-block;margin-top:12px;font-size:12px;color:var(--accent);
+       background:#f6ead9;border-radius:6px;padding:3px 10px}
+  .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
+  .feature{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .feature b{display:block;font-size:15px;margin-bottom:6px}
+  .feature p{margin:0;font-size:13px;color:var(--soft)}
+  pre{background:#3c2a1c;color:#f3e6d3;border-radius:14px;padding:20px 22px;overflow:auto;
+      font-size:13px;line-height:1.9;font-family:ui-monospace,Consolas,monospace}
+  pre code{background:none;color:inherit}
+  .note{font-size:13px;color:var(--soft);margin-top:14px}
+  footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--soft)}
+  @media(max-width:760px){.grid,.features{grid-template-columns:1fr}.wrap{padding:40px 18px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="eyebrow">WORKBUDDY SKILL · DEMO</span>
+  <h1>把一座城市，装进玻璃球</h1>
+  <p class="lead">输入一个城市名，自动生成微缩城市水晶球文创海报。透明玻璃球、深胡桃木底座、暖米色背景，中文标题由系统字体绘制，零乱码。</p>
+  <p class="links">
+    <a href="https://github.com/iithink88/city-glass-globe" target="_blank" rel="noopener">GitHub 仓库 →</a>
+    <a href="https://github.com/iithink88/city-glass-globe#安装" target="_blank" rel="noopener">安装说明 →</a>
+  </p>
+
+  <hr class="rule">
+
+  <h2>成品展示</h2>
+  <p class="sub">同样的视觉形式，换一座城市就是完全不同的故事。以下两张均为本技能实际生成，1024 × 1443。</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="demo/guilin.png" alt="桂林玻璃球海报：漓江峰林、象鼻山、日月双塔与竹筏">
+      <div class="meta">
+        <b>桂林</b>
+        <span>漓江喀斯特峰林 · 象鼻山 · 日月双塔 · 石拱桥与竹筏 · 米粉摊</span>
+        <span class="tag">poster · 初夏 · 青绿湖蓝</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="demo/baoding.png" alt="保定玻璃球海报：荷池垂柳、古城楼阁与早点摊">
+      <div class="meta">
+        <b>保定</b>
+        <span>直隶总督署 · 古莲花池临漪亭 · 大慈阁 · 保定钟楼 · 驴肉火烧摊</span>
+        <span class="tag">poster · 初夏 · 荷绿灰瓦</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <h2>它是怎么做到的</h2>
+  <div class="features">
+    <div class="feature"><b>① 城市名 → 地标</b><p>内置 40+ 城市档案，含地标、季节、色调、经纬度与短句；未收录城市自动走通用模板。</p></div>
+    <div class="feature"><b>② 提示词 → 生图</b><p>结构化提示词约束玻璃折射、木底座、微缩全景与留白，并明确禁止画面出现任何文字。</p></div>
+    <div class="feature"><b>③ 中文字体排版</b><p>标题、英文名、坐标、文案用系统中文字体后期叠加，避开 AI 中文乱码；同时无痕去除平台水印。</p></div>
+  </div>
+
+  <hr class="rule">
+
+  <h2>一句话使用</h2>
+  <pre><code>把苏州装进玻璃球
+用 city-glass-globe 生成保定
+批量生成 北京 上海 西安 的玻璃球海报
+换成雪景风格再做一次哈尔滨</code></pre>
+  <p class="note">可选风格：poster（默认）/ snow / night / ink / clean。改文案或署名只需重跑排版脚本，不必重新生图。</p>
+
+  <footer>
+    技能与页面不含任何 API Key。视觉规范提炼自公开文章，本页 DEMO 图均为本技能生成的原创效果，未使用他人原图 · 仅供学习交流与教学演示。
+  </footer>
+
+</div>
+</body>
+</html>
