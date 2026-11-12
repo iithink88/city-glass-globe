@@ -11,7 +11,7 @@
 </tr>
 </table>
 
-🖼️ [打开在线 DEMO 画廊](https://iithink88.github.io/city-glass-globe/)（在仓库 Settings → Pages 开启，Source 选 `main` / `root`）
+🖼️ [打开在线 DEMO 画廊](https://iithink88.github.io/city-glass-globe/)（GitHub Pages 已开启；首次访问可能需等待 1–2 分钟构建）
 
 成品为 1024×1443 竖版：一只完整透明水晶玻璃球，内装该城市的微缩全景，深胡桃木圆底座、空白金色铭牌、暖米色背景与虚化花枝，配中文标题、英文名、经纬度和一句短文案。
 
